@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/check.dir/tests/test.cpp.o -o check  libprint.a lib/libgtest_main.a libprint.a lib/libgmock_main.a lib/libgmock.a lib/libgtest.a
