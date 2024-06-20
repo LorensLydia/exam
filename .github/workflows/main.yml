@@ -1,0 +1,17 @@
+name: my-workflow-name
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: build
+      run: rm -r _build && cmake -H. -B_build -DBUILD_TESTS=ON && cmake --build _build
+    - name: test
+      run: cmake --build _build --target test -- ARGS=--verbose
