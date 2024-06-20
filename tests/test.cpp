@@ -13,7 +13,6 @@ MockA* mockA = nullptr;
 A* A::getInstance() {
     static A instance;  
     return &instance;
-    return mockA->getInstance();
 }
 
 A::A() {
