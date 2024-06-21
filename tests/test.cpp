@@ -13,8 +13,6 @@ public:
     };
 };
 
-};
-
 MockA* mockA = nullptr;
 
 A* A::getInstance() {
