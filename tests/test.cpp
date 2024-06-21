@@ -6,6 +6,9 @@ class MockA {
 public:
     MOCK_METHOD0(getInstance, A*());
     MOCK_METHOD0(AConstructor, void());
+    void ADestructor() {
+        std::cout << "ADestructor called" << std::endl;
+    }
     MOCK_METHOD0(ADestructor, void());
 };
 
@@ -21,10 +24,11 @@ A::A() {
       mockA->AConstructor();
 }
 
-A::~A() {
-    std::cout << "destruct " << std::endl;
-    mockA->ADestructor();
-}
+~A() {
+        std::cout << "Destructing A" << std::endl;
+        if (mockA != nullptr) {
+            mockA->ADestructor();
+        }
 
 TEST(ATest, GetInstanceCalledOnce) {
     MockA mock;
