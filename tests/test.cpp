@@ -10,7 +10,7 @@ public:
     ~MockA() {
         std::cout << "MockA destructor called" << std::endl;
         ADestructor();
-    }
+    };
 };
 
 };
