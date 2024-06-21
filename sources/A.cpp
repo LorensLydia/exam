@@ -7,12 +7,6 @@ A::A() {
     std::cout << "construct A" << std::endl;
 }
 
-
-A::~A() {
-    std::cout << "destruct " << std::endl;
-}
-
-
 A* A::getInstance() {
     std::cout << "get A" << std::endl;
     if (!instance) {
