@@ -21,9 +21,9 @@ A::A() {
       mockA->AConstructor();
 }
 
-A::A() {
-      std::cout << "destruct " << std::endl;
-      mockA->ADestructor();
+A::~A() {
+    std::cout << "destruct " << std::endl;
+    mockA->ADestructor();
 }
 
 TEST(ATest, GetInstanceCalledOnce) {
