@@ -9,6 +9,7 @@ public:
     MOCK_METHOD0(ADestructor, void());
     ~MockA() {
         std::cout << "MockA destructor called" << std::endl;
+        ADestructor();
     }
 };
 
