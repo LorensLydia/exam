@@ -4,7 +4,7 @@
 class A {
 public:
     static A* getInstance();
-    ~A();
+    virtual ~A();
 
 private:
     A();
