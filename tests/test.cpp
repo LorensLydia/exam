@@ -6,6 +6,7 @@ class MockA {
 public:
     MOCK_METHOD0(getInstance, A*());
     MOCK_METHOD0(AConstructor, void());
+    MOCK_METHOD0(ADestructor, void());
 };
 
 MockA* mockA = nullptr;
@@ -20,11 +21,17 @@ A::A() {
       mockA->AConstructor();
 }
 
+A::A() {
+      std::cout << "destruct " << std::endl;
+      mockA->ADestructor();
+}
+
 TEST(ATest, GetInstanceCalledOnce) {
     MockA mock;
     mockA = &mock;
 
     EXPECT_CALL(mock, AConstructor()).Times(1);
+    EXPECT_CALL(mock, ADestructor()).Times(1);
     
     A* pa1 = A::getInstance();
     A* pa2 = A::getInstance();
